@@ -136,7 +136,7 @@ std::stack<Point> convexHull_1(std::vector<Point> points, int inputSize, int noO
    int ymin = points[0].y, min = 0;
  omp_set_num_threads(noOfThreads);
   
-   #pragma omp parallel num_threads(omp_get_max_threads())
+   #pragma omp parallel num_threads(omp_get_max_threads()) schedule(guided)
     {
       #pragma omp for
    for (int i = 1; i < inputSize; i++)
